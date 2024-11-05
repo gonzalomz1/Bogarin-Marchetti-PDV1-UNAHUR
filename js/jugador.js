@@ -319,7 +319,7 @@ class Jugador extends Entidad {
             if (!colisionConJugador) return;
             // Identificar si el otro cuerpo es suelo o enemigo
             const otroCuerpo = bodyA === this.body ? bodyB : bodyA;
-            if (body.label.startsWith('suelo')){
+            if (otroCuerpo.label.startsWith('suelo')){
                 this.jugadorEnElSuelo = true; // Solo activar si es una plataforma
             } else if (otroCuerpo.label.startsWith('enemigo')) {
                 console.log('otro cuerpo es enemigo')

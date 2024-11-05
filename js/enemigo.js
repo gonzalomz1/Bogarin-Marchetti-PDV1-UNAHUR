@@ -12,6 +12,23 @@ class Enemigo extends Entidad {
         this.estadoActual = 'noPersigue';
     }
 
+    actualizarEstado() {
+        switch (this.estadoActual) {
+            case 'noPersigue':
+                this.noPersigue();
+                break;
+            case 'Persigue':
+                this.Persigue();
+                break;
+            case 'recibeDanio':
+                this.recibeDanio();
+                break;
+            case 'muriendo':
+                this.muriendo();
+                break;
+        }
+    }
+
     noPersigue() {
         if (!this.puedePerseguir) {
             this.estadoActual = 'noPersigue';
@@ -51,22 +68,7 @@ class Enemigo extends Entidad {
         this.estadoActual = nuevoEstado;
     }
 
-    actualizarEstado() {
-        switch (this.estadoActual) {
-            case 'noPersigue':
-                this.noPersigue();
-                break;
-            case 'Persigue':
-                this.Persigue();
-                break;
-            case 'recibeDanio':
-                this.recibeDanio();
-                break;
-            case 'muriendo':
-                this.muriendo();
-                break;
-        }
-    }
+
 
     // Logica de persecucion hacia el jugador
     perseguirJugador() {
