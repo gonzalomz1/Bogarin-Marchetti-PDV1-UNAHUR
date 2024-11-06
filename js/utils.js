@@ -2,6 +2,7 @@ let nivelActual
 let jugador
 let engine
 let world
+let enemigosDelNivelActual = {};
 
 const dicEnem = {
     'test': 1

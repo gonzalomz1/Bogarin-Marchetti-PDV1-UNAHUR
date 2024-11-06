@@ -26,9 +26,9 @@ class Nivel {
         // Crear las plataformas en Matter.js y PixiJS
         plataformasData.forEach((data) => {
             // Cuerpo en Matter.js
-            const plataforma = Matter.Bodies.rectangle(data.x, data.y, data.width, data.height, {
+            const plataforma = Matter.Bodies.rectangle(data.x, data.y, data.width, data.height, { 
                 isStatic: true,
-                label: 'suelo'
+                label: 'suelo'    
             });
             Matter.World.add(this.world, plataforma);
             

@@ -32,7 +32,7 @@ class Enemigo extends Entidad {
     noPersigue() {
         if (!this.puedePerseguir) {
             this.estadoActual = 'noPersigue';
-            console.log('Estado: ', this.estadoActual);
+            //console.log('Estado: ', this.estadoActual);
         } else {
             this.cambiarEstado('Persigue');
         }
@@ -42,7 +42,7 @@ class Enemigo extends Entidad {
         if (this.puedePerseguir) {
             this.estadoActual = 'Persigue';
             this.perseguirJugador();
-            console.log('Estado: ', this.estadoActual);
+            //console.log('Estado: ', this.estadoActual);
         } else {
             this.cambiarEstado('noPersigue');
         }
@@ -51,7 +51,7 @@ class Enemigo extends Entidad {
     recibeDanio() {
         if (this.recibiendoDanio) {
             this.estadoActual = 'recibeDanio';
-            console.log('Estado: ', this.estadoActual);
+            //console.log('Estado: ', this.estadoActual);
         } else {
             this.cambiarEstado('Persigue');
         }
@@ -60,7 +60,7 @@ class Enemigo extends Entidad {
     muriendo() {
         if (this.vida <= 0) {
             this.estadoActual = 'muriendo';
-            console.log('Estado: ', this.estadoActual);
+            //console.log('Estado: ', this.estadoActual);
         }
     }
 
@@ -96,11 +96,18 @@ class Enemigo extends Entidad {
     }
 
     chequearColisionesDelEnemigo() {
-        // Necesitamos saber si el enemigo esta colisionando con el suelo o con otro enemigo
         const contactos = Matter.Query.collides(this.body, world.bodies);
-        if (contactos.some(contacto => contacto.bodyA.label === 'suelo' || contacto.bodyB.label === 'suelo')) {
-            this.puedePerseguir = true;
-        } else {
+        const colisionesValidas = contactos.filter(contacto => contacto.bodyA.id !== contacto.bodyB.id);
+        colisionesValidas.forEach((colision) => {
+            const { bodyA, bodyB } = colision;
+            const otroCuerpo = bodyA === this.body ? bodyB : bodyA;
+            if (otroCuerpo.label === 'suelo'){
+                this.puedePerseguir = true; // Solo activar si es una plataforma
+            } else {
+                this.puedePerseguir = false;
+            }
+        });
+        if (colisionesValidas.length < 1){
             this.puedePerseguir = false;
         }
     }
@@ -124,7 +131,7 @@ class Enemigo extends Entidad {
         const multiplicador = (this.vida <= 0) ? 4 : 1;
         const fuerzaKnockback = cantidad * fuerzaBase * multiplicador;
         this.aplicarKnockback(fuerzaKnockback, direccionNormalizada);
-        setTimeout(() => {
+        setTimeout(() => {                                       
             if (this.vida <= 0) {
                 console.log('Enemigo destruido')
                 this.cambiarEstado('muriendo');
