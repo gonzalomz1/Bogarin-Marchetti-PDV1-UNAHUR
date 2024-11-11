@@ -1,6 +1,9 @@
+// jugador.js
 class Jugador extends Entidad {
-    constructor(world, app, alto, ancho) {
+    constructor(world, app, alto, ancho, inputManager) {
         super(world, app, ancho / 2, alto / 2);
+        this.inputManager = inputManager;
+        this.registrarEntradas();
 
         // Seteamos el color del rectangulo verde
         this.sprite.clear();
@@ -46,15 +49,6 @@ class Jugador extends Entidad {
         this.recibiendoDanio = false;
         this.cooldownRecibiendoDanio = 1000;
 
-        this.teclasPresionadas = {
-            a: false,
-            d: false,
-            w: false,
-            Shift: false
-        };
-
-        this.setupListeners();
-
         this.velocidadAtaque = 200;
         this.distanciaAtaque = 40;
         this.altoAtaque = 10;
@@ -64,19 +58,13 @@ class Jugador extends Entidad {
         console.log('vida del jugador: ', this.vida);
     }
 
-    setupListeners() {
-        window.addEventListener('keydown', (e) => this.manejarMovimiento(e, true));
-        window.addEventListener('keyup', (e) => this.manejarMovimiento(e, false));
-        this.app.view.addEventListener('mousemove', (e) => {
-            this.mouseMoviendose = true;
-            this.apuntar(e);
+    registrarEntradas(){
+        this.inputManager.registrarContexto('juego', {
+            manejarTecla: (e, presionada) => this.manejarMovimiento(e, presionada),
+            manejarMouse: (e) => this.apuntar(e),
+            manejarClick: (e) => this.atacar(e)
         });
-        this.app.view.addEventListener('mouseout', (e) => {
-            this.mouseMoviendose = false;
-            this.apuntar(e);
-        });
-
-        this.app.view.addEventListener('mousedown', (e) => this.atacar(e));
+        this.inputManager.cambiarContexto('juego');
     }
 
     crearAreaAtaque() {
@@ -118,22 +106,6 @@ class Jugador extends Entidad {
     manejarMovimiento(e, presionada) {
         // Movimiento con A/D y salto con W/Espacio, bajar con s
         switch (e.key) {
-            case 'a':
-            case 'A':
-                this.teclasPresionadas.a = presionada;
-                break;
-            case 'd':
-            case 'D':
-                this.teclasPresionadas.d = presionada;
-                break;
-            case 'w':
-            case 'W':
-            case ' ':
-                this.teclasPresionadas.w = presionada;
-                break;
-            case 's':
-            case 'S':
-                break;
             case 'Shift':
                 if (presionada && !this.cooldownDash) this.iniciarDash();
                 break;
@@ -143,18 +115,18 @@ class Jugador extends Entidad {
 
     actualizarVelocidad() {
         // Si ambas teclas estan presionadas (A y D), no se mueve en el eje X
-        if (this.teclasPresionadas.a && this.teclasPresionadas.d) {
+        if (this.inputManager.teclasPresionadas.a && this.inputManager.teclasPresionadas.d) {
             this.velocidadHorizontal = 0;
-        } else if (this.teclasPresionadas.a) {
+        } else if (this.inputManager.teclasPresionadas.a) {
             this.velocidadHorizontal = -this.velocidadMovimiento;
-        } else if (this.teclasPresionadas.d) {
+        } else if (this.inputManager.teclasPresionadas.d) {
             this.velocidadHorizontal = this.velocidadMovimiento;
         } else {
             this.velocidadHorizontal = 0;
         }
 
-        // Solo saltar si W o espacio esta presionado y el jugador esta en el suelo
-        if (this.teclasPresionadas.w) {
+        // Solo saltar si W esta presionado y el jugador esta en el suelo
+        if (this.inputManager.teclasPresionadas.w) {
             this.saltar();
         }
     };
@@ -358,3 +330,5 @@ class Jugador extends Entidad {
         this.mouseMoviendose = false;
     }
 }
+
+// fin jugador.js

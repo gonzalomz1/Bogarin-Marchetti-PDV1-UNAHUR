@@ -1,3 +1,4 @@
+// boids.js
 class Boid {
     constructor(x, y, velocidadMax = 2, fuerzaMax = 0.03) {
         this.posicion = {x, y}; // Posicion actual del Boid
@@ -38,3 +39,5 @@ class Boid {
         this.aceleracion.y += fuerza.y;
     }
 }
+
+// fin boids.js

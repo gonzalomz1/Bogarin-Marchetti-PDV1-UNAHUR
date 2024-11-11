@@ -1,3 +1,4 @@
+// Utils.js
 let nivelActual
 let jugador
 let engine
@@ -78,3 +79,5 @@ function setearColisionesDelJugador() {
         jugador.detectarFinColision(e.pairs);
     });
 }
+
+// Fin utils.js

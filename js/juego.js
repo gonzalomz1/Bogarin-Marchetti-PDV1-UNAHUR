@@ -1,3 +1,4 @@
+// juego.js
 class Juego{
     constructor(){
         // Inicializar la aplicacion PixiJS
@@ -26,8 +27,10 @@ class Juego{
             renderizada en PixiJS y su cuerpo fisico en Matter
             Finalmente se sincroniza en el gameLoop()
             */
+            this.inputManager = new InputManager;
+            this.inputManager.iniciar();
             this.nivel = new Nivel(this.world, this.app, this.alto, this.ancho);
-            this.jugador = new Jugador(this.world, this.app, this.alto, this.ancho);
+            this.jugador = new Jugador(this.world, this.app, this.alto, this.ancho, this.inputManager);
             hacerJugadorVariableGlobal(this.jugador);    
             setearColisionesDelJugador(); 
             // Bucle del juego. Se agrega al ticker (bucle) de PixiJS.
@@ -55,3 +58,5 @@ class Juego{
         this.nivel.update(); // Actualizar el nivel
     };
 }
+
+// fin juego.js

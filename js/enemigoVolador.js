@@ -1,3 +1,4 @@
+// enemigoVolador.js
 class EnemigoVolador extends Enemigo {
     constructor(world, app, x, y) {
         super(world, app, x, y);
@@ -42,3 +43,5 @@ class EnemigoVolador extends Enemigo {
        super.update();
     }
 }
+
+//fin enemigoVolador.js

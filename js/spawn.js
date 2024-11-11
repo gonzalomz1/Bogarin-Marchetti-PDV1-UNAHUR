@@ -1,3 +1,4 @@
+// spawn.js
 class SpawnPoint {
     constructor(world, app, x, y, ancho = 20, alto = 20){
        this.world = world;
@@ -26,3 +27,5 @@ class SpawnPoint {
         return enemigoVolador;
     }
 }
+
+// fin spawn.js

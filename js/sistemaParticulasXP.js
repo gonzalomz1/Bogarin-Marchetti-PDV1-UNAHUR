@@ -1,3 +1,4 @@
+// sistemaParticulasXP.js
 class SistemaParticulasXP extends SistemaBoids {
     constructor(app, cantidad, x, y) {
         super(cantidad, app.view.width, app.view.height); // Inicializamos el sistema Boids
@@ -64,3 +65,5 @@ class SistemaParticulasXP extends SistemaBoids {
         this.boids = [];
     }
 }
+
+// fin sistemaParticulasXP.js

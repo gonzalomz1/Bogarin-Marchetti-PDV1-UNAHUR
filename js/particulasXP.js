@@ -1,3 +1,4 @@
+// particulasXP.js
 class ParticulaXP extends Boid {
     constructor (x, y, app) {
         super(x, y); // Reutilizamos la logica del Boid para la particula
@@ -26,3 +27,5 @@ class ParticulaXP extends Boid {
         app.stage.removeChild(this.sprite);
     }
 }
+
+// fin particulasXP.js

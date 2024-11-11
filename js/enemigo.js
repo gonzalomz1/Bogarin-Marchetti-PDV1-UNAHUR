@@ -1,3 +1,4 @@
+// enemigo.js
 class Enemigo extends Entidad {
     constructor(world, app, x, y) {
         super(world, app, x, y);
@@ -163,3 +164,4 @@ class Enemigo extends Entidad {
         this.rectBounds = this.sprite.getBounds();
     }
 }
+// fin enemigo.js

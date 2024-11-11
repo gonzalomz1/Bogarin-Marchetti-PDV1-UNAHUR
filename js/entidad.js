@@ -1,3 +1,4 @@
+// entidad.js
 class Entidad {
     constructor(world, app, x, y) {
         this.world = world;
@@ -46,3 +47,5 @@ class Entidad {
         this.sprite.y = this.body.position.y;
     }
 }
+
+// fin entidad.js

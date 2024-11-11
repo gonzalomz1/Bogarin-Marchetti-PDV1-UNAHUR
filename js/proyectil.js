@@ -1,3 +1,4 @@
+// proyectil.js
 class Proyectil {
     constructor(app, xInicial, yInicial, xObjetivo, yObjetivo){
         this.app = app;
@@ -31,3 +32,5 @@ class Proyectil {
         this.sprite.destroy();
     }
 }
+
+// fin proyectil.js

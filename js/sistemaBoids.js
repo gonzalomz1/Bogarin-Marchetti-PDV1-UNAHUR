@@ -1,3 +1,4 @@
+// sistemaBoids.js
 class SistemaBoids {
     constructor(cantidad, ancho, alto) {
         this.boids = [];
@@ -129,3 +130,5 @@ normalizar(vector, magnitudMax) {
 }
 
 }
+
+// fin sistemaBoids.js
