@@ -9,26 +9,22 @@ class Juego{
         
         let promesa = this.app.init({width: this.ancho, height: this.alto});
 
-        /* Esta promesa es creada para que, luego de que inicie la aplicacion PixiJS, recien ahi agregue lo necesario. 
-           De otra manera daria problemas de sincronizacion.*/
-        
-
         promesa.then((e) => {        
             document.body.appendChild(this.app.view);
-            // Inicializar Matter.js
+
             this.engine = Matter.Engine.create();
             asignarEngineActual(this.engine);
             this.world = this.engine.world;
             asignarWorldActual(this.world);
             this.inicializarRenderDeMatter();
 
-            /*
-            Siempre que se cree alguna entidad, esta estara
-            renderizada en PixiJS y su cuerpo fisico en Matter
-            Finalmente se sincroniza en el gameLoop()
-            */
             this.inputManager = new InputManager;
             this.inputManager.iniciar();
+
+            this.pantallaInicio = new pantallaInicio(this.app, this.inputManager);
+            this.pantallaInicio.activar();
+
+            
             this.nivel = new Nivel(this.world, this.app, this.alto, this.ancho);
             this.jugador = new Jugador(this.world, this.app, this.alto, this.ancho, this.inputManager);
             hacerJugadorVariableGlobal(this.jugador);    

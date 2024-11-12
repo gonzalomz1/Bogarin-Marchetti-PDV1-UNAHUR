@@ -9,7 +9,8 @@ const RUTAS = {
     imagenes: {
         jugador: '',
         enemigo: '',
-        fondo: ''
+        fondo: '',
+        pantallaInicio: 'D:/PDV1/assets/pantallaInicio/PantallaInicio.png'
     },
     json: {
         configuracion: '',
@@ -42,6 +43,4 @@ async function cargarRecursos() {
 function obtenerRecurso(nombre){
     return recursos[nombre] || null;
 }
-
-export { cargarRecursos, obtenerRecurso, RUTAS };
 // fin fileManager.js

@@ -1,0 +1,200 @@
+{ "frames": {
+   "PantallaInicio 0.aseprite": {
+    "frame": { "x": 0, "y": 0, "w": 1280, "h": 720 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 1280, "h": 720 },
+    "sourceSize": { "w": 1280, "h": 720 },
+    "duration": 100
+   },
+   "PantallaInicio 1.aseprite": {
+    "frame": { "x": 1280, "y": 0, "w": 1280, "h": 720 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 1280, "h": 720 },
+    "sourceSize": { "w": 1280, "h": 720 },
+    "duration": 100
+   },
+   "PantallaInicio 2.aseprite": {
+    "frame": { "x": 2560, "y": 0, "w": 1280, "h": 720 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 1280, "h": 720 },
+    "sourceSize": { "w": 1280, "h": 720 },
+    "duration": 100
+   },
+   "PantallaInicio 3.aseprite": {
+    "frame": { "x": 3840, "y": 0, "w": 1280, "h": 720 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 1280, "h": 720 },
+    "sourceSize": { "w": 1280, "h": 720 },
+    "duration": 100
+   },
+   "PantallaInicio 4.aseprite": {
+    "frame": { "x": 5120, "y": 0, "w": 1280, "h": 720 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 1280, "h": 720 },
+    "sourceSize": { "w": 1280, "h": 720 },
+    "duration": 100
+   },
+   "PantallaInicio 5.aseprite": {
+    "frame": { "x": 6400, "y": 0, "w": 1280, "h": 720 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 1280, "h": 720 },
+    "sourceSize": { "w": 1280, "h": 720 },
+    "duration": 100
+   },
+   "PantallaInicio 6.aseprite": {
+    "frame": { "x": 7680, "y": 0, "w": 1280, "h": 720 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 1280, "h": 720 },
+    "sourceSize": { "w": 1280, "h": 720 },
+    "duration": 100
+   },
+   "PantallaInicio 7.aseprite": {
+    "frame": { "x": 8960, "y": 0, "w": 1280, "h": 720 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 1280, "h": 720 },
+    "sourceSize": { "w": 1280, "h": 720 },
+    "duration": 100
+   },
+   "PantallaInicio 8.aseprite": {
+    "frame": { "x": 10240, "y": 0, "w": 1280, "h": 720 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 1280, "h": 720 },
+    "sourceSize": { "w": 1280, "h": 720 },
+    "duration": 100
+   },
+   "PantallaInicio 9.aseprite": {
+    "frame": { "x": 11520, "y": 0, "w": 1280, "h": 720 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 1280, "h": 720 },
+    "sourceSize": { "w": 1280, "h": 720 },
+    "duration": 100
+   },
+   "PantallaInicio 10.aseprite": {
+    "frame": { "x": 12800, "y": 0, "w": 1280, "h": 720 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 1280, "h": 720 },
+    "sourceSize": { "w": 1280, "h": 720 },
+    "duration": 100
+   },
+   "PantallaInicio 11.aseprite": {
+    "frame": { "x": 14080, "y": 0, "w": 1280, "h": 720 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 1280, "h": 720 },
+    "sourceSize": { "w": 1280, "h": 720 },
+    "duration": 100
+   },
+   "PantallaInicio 12.aseprite": {
+    "frame": { "x": 15360, "y": 0, "w": 1280, "h": 720 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 1280, "h": 720 },
+    "sourceSize": { "w": 1280, "h": 720 },
+    "duration": 100
+   },
+   "PantallaInicio 13.aseprite": {
+    "frame": { "x": 16640, "y": 0, "w": 1280, "h": 720 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 1280, "h": 720 },
+    "sourceSize": { "w": 1280, "h": 720 },
+    "duration": 100
+   },
+   "PantallaInicio 14.aseprite": {
+    "frame": { "x": 17920, "y": 0, "w": 1280, "h": 720 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 1280, "h": 720 },
+    "sourceSize": { "w": 1280, "h": 720 },
+    "duration": 100
+   },
+   "PantallaInicio 15.aseprite": {
+    "frame": { "x": 19200, "y": 0, "w": 1280, "h": 720 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 1280, "h": 720 },
+    "sourceSize": { "w": 1280, "h": 720 },
+    "duration": 100
+   },
+   "PantallaInicio 16.aseprite": {
+    "frame": { "x": 20480, "y": 0, "w": 1280, "h": 720 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 1280, "h": 720 },
+    "sourceSize": { "w": 1280, "h": 720 },
+    "duration": 100
+   },
+   "PantallaInicio 17.aseprite": {
+    "frame": { "x": 21760, "y": 0, "w": 1280, "h": 720 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 1280, "h": 720 },
+    "sourceSize": { "w": 1280, "h": 720 },
+    "duration": 100
+   },
+   "PantallaInicio 18.aseprite": {
+    "frame": { "x": 23040, "y": 0, "w": 1280, "h": 720 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 1280, "h": 720 },
+    "sourceSize": { "w": 1280, "h": 720 },
+    "duration": 100
+   },
+   "PantallaInicio 19.aseprite": {
+    "frame": { "x": 24320, "y": 0, "w": 1280, "h": 720 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 1280, "h": 720 },
+    "sourceSize": { "w": 1280, "h": 720 },
+    "duration": 100
+   },
+   "PantallaInicio 20.aseprite": {
+    "frame": { "x": 25600, "y": 0, "w": 1280, "h": 720 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 1280, "h": 720 },
+    "sourceSize": { "w": 1280, "h": 720 },
+    "duration": 100
+   },
+   "PantallaInicio 21.aseprite": {
+    "frame": { "x": 26880, "y": 0, "w": 1280, "h": 720 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 1280, "h": 720 },
+    "sourceSize": { "w": 1280, "h": 720 },
+    "duration": 100
+   }
+ },
+ "meta": {
+  "app": "https://www.aseprite.org/",
+  "version": "1.3.9.2-x64",
+  "image": "PantallaInicio.png",
+  "format": "RGBA8888",
+  "size": { "w": 28160, "h": 720 },
+  "scale": "1",
+  "frameTags": [
+  ],
+  "layers": [
+   { "name": "Background", "opacity": 255, "blendMode": "normal" },
+   { "name": "piso cuadricula", "opacity": 255, "blendMode": "normal" },
+   { "name": "luz de lampara", "opacity": 51, "blendMode": "normal" },
+   { "name": "siluetas negras", "opacity": 255, "blendMode": "normal" },
+   { "name": "bordes", "opacity": 255, "blendMode": "normal" },
+   { "name": "titulo", "opacity": 255, "blendMode": "normal" },
+   { "name": "presiona enter", "opacity": 255, "blendMode": "normal" }
+  ],
+  "slices": [
+  ]
+ }
+}
