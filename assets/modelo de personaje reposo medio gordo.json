@@ -1,5 +1,5 @@
 { "frames": {
-   "modelo de personaje reposo medio gordo 0.aseprite": {
+   "modelo de personaje reposo gran gordo 0.aseprite": {
     "frame": { "x": 0, "y": 0, "w": 32, "h": 32 },
     "rotated": false,
     "trimmed": false,
@@ -7,7 +7,7 @@
     "sourceSize": { "w": 32, "h": 32 },
     "duration": 200
    },
-   "modelo de personaje reposo medio gordo 1.aseprite": {
+   "modelo de personaje reposo gran gordo 1.aseprite": {
     "frame": { "x": 32, "y": 0, "w": 32, "h": 32 },
     "rotated": false,
     "trimmed": false,
@@ -15,7 +15,7 @@
     "sourceSize": { "w": 32, "h": 32 },
     "duration": 200
    },
-   "modelo de personaje reposo medio gordo 2.aseprite": {
+   "modelo de personaje reposo gran gordo 2.aseprite": {
     "frame": { "x": 64, "y": 0, "w": 32, "h": 32 },
     "rotated": false,
     "trimmed": false,
@@ -23,7 +23,7 @@
     "sourceSize": { "w": 32, "h": 32 },
     "duration": 200
    },
-   "modelo de personaje reposo medio gordo 3.aseprite": {
+   "modelo de personaje reposo gran gordo 3.aseprite": {
     "frame": { "x": 96, "y": 0, "w": 32, "h": 32 },
     "rotated": false,
     "trimmed": false,
