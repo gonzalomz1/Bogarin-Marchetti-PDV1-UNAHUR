@@ -1,7 +1,14 @@
 // enemigo.js
 class Enemigo extends Entidad {
-    constructor(world, app, x, y) {
-        super(world, app, x, y);
+    constructor(juego, world, app, x, y) {
+        super(juego, world, app, x, y);
+        // parche para que no se rompa mientras pruebo player
+        this.sprite = new PIXI.Graphics();
+        this.sprite.x = this.x;
+        this.sprite.y = this.y;
+        this.app.stage.addChild(this.sprite);
+        ////////////////////////////////////////////////////
+
         this.tipo = 'test';
         this.rectBounds = this.sprite.getBounds(); // Cachear bounds
         this.puedePerseguir = false;

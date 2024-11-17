@@ -1,6 +1,7 @@
 // nivel.js
 class Nivel {
-    constructor(world, app, alto, ancho) {
+    constructor(juego, world, app, alto, ancho) {
+        this.juego = juego;
         this.world = world;
         this.app = app;
         this.alto = alto;
@@ -51,13 +52,13 @@ class Nivel {
 
     crearSpawnDeEnemigos() {
         let spawns = [];
-        const spawn1 = new SpawnPoint(this.world, this.app, this.ancho / 2 - 200, this.alto / 2 - 100);
+        const spawn1 = new SpawnPoint(this.juego, this.world, this.app, this.ancho / 2 - 200, this.alto / 2 - 100);
         spawns.push(spawn1);
-        const spawn2 = new SpawnPoint(this.world, this.app, this.ancho / 2 + 200, this.alto / 2 - 100);
+        const spawn2 = new SpawnPoint(this.juego, this.world, this.app, this.ancho / 2 + 200, this.alto / 2 - 100);
         spawns.push(spawn2);
-        const spawn3 = new SpawnPoint(this.world, this.app, this.ancho / 2 + 400, this.alto / 2 - 300);
+        const spawn3 = new SpawnPoint(this.juego, this.world, this.app, this.ancho / 2 + 400, this.alto / 2 - 300);
         spawns.push(spawn3);
-        const spawn4 = new SpawnPoint(this.world, this.app, this.ancho / 2 - 400, this.alto / 2 - 300);
+        const spawn4 = new SpawnPoint(this.juego, this.world, this.app, this.ancho / 2 - 400, this.alto / 2 - 300);
         return spawns;
     }
 

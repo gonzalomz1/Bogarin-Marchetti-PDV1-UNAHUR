@@ -1,15 +1,21 @@
 // jugador.js
 class Jugador extends Entidad {
-    constructor(world, app, alto, ancho, inputManager) {
-        super(world, app, ancho / 2, alto / 2);
+    constructor(juego, world, app, alto, ancho, inputManager) {
+        super(juego, world, app, ancho / 2, alto / 2);
+        this.juego = juego;
+        this.cargadorRecursos = juego.cargadorRecursos;
+
         this.inputManager = inputManager;
         this.registrarEntradas();
 
-        // Seteamos el color del rectangulo verde
-        this.sprite.clear();
-        this.sprite.beginFill(0x00ff00);
-        this.sprite.drawRect(-16, -16, 32, 32);
-        this.sprite.endFill();
+        // Cargar la textura del jugador principal
+        this.iniciarSprite("JugadorFlacoIdle");
+
+        // Colisiones del jugador
+        this.agregarEventosDeMatter()
+
+        //Maquina de estados
+        this.estadoActual = 'Idle';
 
         // Atributos del jugador
         this.vida = 3;
@@ -58,7 +64,59 @@ class Jugador extends Entidad {
         console.log('vida del jugador: ', this.vida);
     }
 
-    registrarEntradas(){
+    iniciarSprite(nombreSprite) {
+        const sprite = this.cargadorRecursos.obtenerRecurso(nombreSprite);
+        this.sprite = new PIXI.AnimatedSprite(
+            sprite.animations[nombreSprite]
+        );
+        this.sprite.animationSpeed = 0.1;
+        this.sprite.loop = true;
+        this.sprite.play();
+        this.juego.app.stage.addChild(this.sprite);
+    }
+
+    agregarEventosDeMatter() {
+        this.juego.eventosMatterJugador();
+    }
+
+    cambiarEstado(nuevoEstado) {
+        this.estadoActual = nuevoEstado;
+    }
+
+    actualizarEstado() {
+        switch (this.estadoActual) {
+            case 'Idle':
+                this.Idle();
+                break;
+            case 'Move':
+                this.Move();
+                break;
+            case 'Jump':
+                this.Jump();
+                break;
+            case 'Dead':
+                this.Dead();
+        }
+    }
+
+    Idle() {
+
+    }
+
+    Move() {
+
+    }
+
+    Jump() {
+
+    }
+
+    Dead() {
+
+    }
+
+    registrarEntradas() {
+        console.log('input manager existe: ', this.inputManager);
         this.inputManager.registrarContexto('juego', {
             manejarTecla: (e, presionada) => this.manejarMovimiento(e, presionada),
             manejarMouse: (e) => this.apuntar(e),
@@ -291,7 +349,8 @@ class Jugador extends Entidad {
             if (!colisionConJugador) return;
             // Identificar si el otro cuerpo es suelo o enemigo
             const otroCuerpo = bodyA === this.body ? bodyB : bodyA;
-            if (otroCuerpo.label.startsWith('suelo')){
+            if (otroCuerpo.label.startsWith('suelo')) {
+                console.log('cambiamos el valor de jugadorEnElSuelo');
                 this.jugadorEnElSuelo = true; // Solo activar si es una plataforma
             } else if (otroCuerpo.label.startsWith('enemigo')) {
                 console.log('otro cuerpo es enemigo')
@@ -317,17 +376,20 @@ class Jugador extends Entidad {
     }
 
     update() {
-        if (this.areaAtaque.visible) this.detectarColisionAtaque();
-        if (!this.mouseMoviendose) this.apuntarConUltimaPosicion();
-        this.sincronizarAreaAtaque();
-        // Sincronizamos el sprite con el cuerpo de matter.js
-        this.sprite.x = this.body.position.x;
-        this.sprite.y = this.body.position.y;
-        // Setear la velocidad 
-        Matter.Body.setVelocity(this.body, { x: this.velocidadHorizontal, y: this.body.velocity.y });
-        // Actualizar la barra de cooldown
-        this.actualizarBarraCooldown();
-        this.mouseMoviendose = false;
+        if (this.sprite != null) {
+            //actualizarEstado();
+            if (this.areaAtaque.visible) this.detectarColisionAtaque();
+            if (!this.mouseMoviendose) this.apuntarConUltimaPosicion();
+            this.sincronizarAreaAtaque();
+            // Sincronizamos el sprite con el cuerpo de matter.js
+            this.sprite.x = this.body.position.x;
+            this.sprite.y = this.body.position.y;
+            // Setear la velocidad 
+            Matter.Body.setVelocity(this.body, { x: this.velocidadHorizontal, y: this.body.velocity.y });
+            // Actualizar la barra de cooldown
+            this.actualizarBarraCooldown();
+            this.mouseMoviendose = false;
+        }
     }
 }
 

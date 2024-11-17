@@ -1,0 +1,79 @@
+{"frames": {
+
+"PantallaInicio_001.png":
+{
+	"frame": {"x":0,"y":0,"w":1280,"h":720},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":1280,"h":720},
+	"sourceSize": {"w":1280,"h":720}
+},
+"PantallaInicio_002.png":
+{
+	"frame": {"x":1280,"y":0,"w":1280,"h":720},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":1280,"h":720},
+	"sourceSize": {"w":1280,"h":720}
+},
+"PantallaInicio_003.png":
+{
+	"frame": {"x":2560,"y":0,"w":1280,"h":720},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":1280,"h":720},
+	"sourceSize": {"w":1280,"h":720}
+},
+"PantallaInicio_004.png":
+{
+	"frame": {"x":0,"y":720,"w":1280,"h":720},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":1280,"h":720},
+	"sourceSize": {"w":1280,"h":720}
+},
+"PantallaInicio_005.png":
+{
+	"frame": {"x":1280,"y":720,"w":1280,"h":720},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":1280,"h":720},
+	"sourceSize": {"w":1280,"h":720}
+},
+"PantallaInicio_006.png":
+{
+	"frame": {"x":2560,"y":720,"w":1280,"h":720},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":1280,"h":720},
+	"sourceSize": {"w":1280,"h":720}
+},
+"PantallaInicio_007.png":
+{
+	"frame": {"x":0,"y":1440,"w":1280,"h":720},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":1280,"h":720},
+	"sourceSize": {"w":1280,"h":720}
+},
+"PantallaInicio_008.png":
+{
+	"frame": {"x":1280,"y":1440,"w":1280,"h":720},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":1280,"h":720},
+	"sourceSize": {"w":1280,"h":720}
+}},
+"animations": {
+	"PantallaInicio": ["PantallaInicio_001.png","PantallaInicio_002.png","PantallaInicio_003.png","PantallaInicio_004.png","PantallaInicio_005.png","PantallaInicio_006.png","PantallaInicio_007.png","PantallaInicio_008.png"]
+},
+"meta": {
+	"app": "https://www.codeandweb.com/texturepacker",
+	"version": "1.1",
+	"image": "PantallaInicio.png",
+	"format": "RGBA8888",
+	"size": {"w":3840,"h":2160},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:f0be865f3b36687c40d7790c5a8b449e:bbacc81e3f9252d749b819cccfb7f0d0:86e49ab497c142de601252065dd1d845$"
+}
+}
