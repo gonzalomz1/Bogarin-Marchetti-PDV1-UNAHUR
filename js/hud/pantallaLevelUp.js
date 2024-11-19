@@ -1,5 +1,5 @@
 class PantallaLevelUp {
-    constructor(){
+    constructor() {
         new PowerUp
         new PowerUp
         new PowerUp

@@ -194,8 +194,6 @@ class Jugador extends Entidad {
         this.actualizarVelocidad();
     }
 
-
-
     actualizarVelocidad() {
         // Si ambas teclas estan presionadas (A y D), no se mueve en el eje X
         if (this.inputManager.teclasPresionadas.a && this.inputManager.teclasPresionadas.d) {
@@ -268,7 +266,6 @@ class Jugador extends Entidad {
     }
     
     apuntar(e) {
-        
         // Calcular posicion del mouse en coordenadas del canvas
         const rect = this.juego.app.view.getBoundingClientRect();
         const mouseX = e.clientX - rect.left; 
@@ -293,7 +290,6 @@ class Jugador extends Entidad {
         } else {
             this.invertirSprite(false);
         }
-    
         this.actualizarAreaAtaque();
         this.sincronizarAreaAtaque();
     }
@@ -345,7 +341,6 @@ class Jugador extends Entidad {
         this.cambiarEstado('Attack');
         this.areaAtaque.visible = true;
         this.areaAtaque.gotoAndPlay(0);
-        //this.areaAtaque.play();
         console.log('Ataque activado');
         setTimeout(() => {
             this.areaAtaque.visible = false;
@@ -356,8 +351,8 @@ class Jugador extends Entidad {
     apuntarConUltimaPosicion() {
         const dx = this.ultimaPosMouse.x - this.container.x;
         const dy = this.ultimaPosMouse.y - this.container.y;
-
-        this.anguloApuntado = Math.atan2(dy, dx); // Reutilizamos la ultima posicion conocida
+        // Reutilizamos la ultima posicion conocida
+        this.anguloApuntado = Math.atan2(dy, dx); 
         // Actualizar la posicion y rotacion del area de ataque
         this.actualizarAreaAtaque();
         this.sincronizarAreaAtaque();

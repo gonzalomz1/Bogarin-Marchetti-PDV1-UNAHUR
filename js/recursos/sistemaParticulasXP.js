@@ -16,7 +16,7 @@ class SistemaParticulasXP extends SistemaBoids {
     }
 
     // Aplicar la logica Boids y actualizar todas las particulas
-    update(){
+    update() {
         this.aplicarReglas(detectarJugador()); // Aplicar las reglas del sistema Boids
         // Actualizar cada particula individualmente
         this.particulas.forEach((particula) => {
@@ -53,7 +53,7 @@ class SistemaParticulasXP extends SistemaBoids {
     absorberParticula(particula) {
         particula.puedeSerAbsorbida = false;
         console.log('Particula Absorbida')
-        setTimeout(()=> {
+        setTimeout(() => {
             particula.destruir(this.app);
         }, 1000);
     }

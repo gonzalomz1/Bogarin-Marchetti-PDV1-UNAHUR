@@ -60,73 +60,54 @@ class Juego {
         this.hud.scale.set(escalaX, escalaY);
     }
 
- /*
     onResize() {
         let nuevoAncho = window.innerWidth;
         let nuevoAlto = window.innerHeight;
+
+        // Limitar el tamaño mínimo y máximo del canvas
         if (nuevoAncho > 1920) nuevoAncho = 1920;
         if (nuevoAlto > 1080) nuevoAlto = 1080;
         if (nuevoAncho < 1280) nuevoAncho = 1280;
         if (nuevoAlto < 720) nuevoAlto = 720;
+
+        // Ajustar el tamaño del renderer de PIXI
         this.app.renderer.resize(nuevoAncho, nuevoAlto);
-        this.actualizarEscalas(nuevoAncho, nuevoAlto)
-    }
-*/
 
-onResize() {
-    let nuevoAncho = window.innerWidth;
-    let nuevoAlto = window.innerHeight;
+        // Calcular escalas para PIXI
+        const escalaX = nuevoAncho / this.ancho;
+        const escalaY = nuevoAlto / this.alto;
 
-    // Limitar el tamaño mínimo y máximo del canvas
-    if (nuevoAncho > 1920) nuevoAncho = 1920;
-    if (nuevoAlto > 1080) nuevoAlto = 1080;
-    if (nuevoAncho < 1280) nuevoAncho = 1280;
-    if (nuevoAlto < 720) nuevoAlto = 720;
+        this.actualizarEscalas(nuevoAncho, nuevoAlto);
 
-    // Ajustar el tamaño del renderer de PIXI
-    this.app.renderer.resize(nuevoAncho, nuevoAlto);
+        // Verificar que el mundo de Matter existe
+        if (this.world) {
+            // Escalar los límites del mundo de Matter.js
+            this.world.bounds = {
+                min: { x: 0, y: 0 },
+                max: { x: nuevoAncho, y: nuevoAlto }
+            };
 
-    // Calcular escalas para PIXI
-    const escalaX = nuevoAncho / this.ancho;
-    const escalaY = nuevoAlto / this.alto;
+            // Obtener los cuerpos del mundo
+            const cuerpos = Matter.Composite.allBodies(this.world);
 
-    // Actualizar las escalas de los contenedores de PIXI
-    this.actualizarEscalas(nuevoAncho, nuevoAlto);
-
-    // Verificar que el mundo de Matter existe
-    if (this.world) {
-        // Escalar los límites del mundo de Matter.js
-        this.world.bounds = {
-            min: { x: 0, y: 0 },
-            max: { x: nuevoAncho, y: nuevoAlto }
-        };
-
-        // Obtener los cuerpos del mundo
-        const cuerpos = Matter.Composite.allBodies(this.world);
-
-        // Verificar que existan cuerpos antes de escalarlos
-        if (cuerpos.length > 0) {
-            cuerpos.forEach(body => {
-                // Escalar el tamaño de los cuerpos
-                Matter.Body.scale(body, escalaX, escalaY);
-
-                // Ajustar las posiciones para que coincidan con la escala
-                Matter.Body.setPosition(body, {
-                    x: body.position.x * escalaX,
-                    y: body.position.y * escalaY
+            // Verificar que existan cuerpos antes de escalarlos
+            if (cuerpos.length > 0) {
+                cuerpos.forEach(body => {
+                    // Escalar el tamaño de los cuerpos
+                    Matter.Body.scale(body, escalaX, escalaY);
+                    // Ajustar las posiciones para que coincidan con la escala
+                    Matter.Body.setPosition(body, {
+                        x: body.position.x * escalaX,
+                        y: body.position.y * escalaY
+                    });
                 });
-            });
+            }
         }
+
+        // Actualizar las dimensiones internas
+        this.ancho = nuevoAncho;
+        this.alto = nuevoAlto;
     }
-
-    // Actualizar las dimensiones internas de tu juego
-    this.ancho = nuevoAncho;
-    this.alto = nuevoAlto;
-}
-
-    
-
-
 
     async iniciarJuego() {
         // Precargar todos los recursos
@@ -155,7 +136,7 @@ onResize() {
         this.pantallaInicio.activar();
         this.onResize();
     }
-    
+
     iniciarTutorial() {
         this.tutorial = new Tutorial(this);
         this.tutorial.activar();
@@ -182,7 +163,6 @@ onResize() {
             this.moverCamara();
         } // Actualizar el jugador
         if (this.nivel != null) this.nivel.update(); // Actualizar el nivel
-
     };
 
     moverCamara() {
@@ -190,14 +170,12 @@ onResize() {
         // Obtener la posición del protagonista
         const playerX = this.jugador.container.x;
         const playerY = this.jugador.container.y;
-
         // Calcular la posición objetivo del stage para centrar al protagonista
-        const halfScreenWidth = this.app.screen.width / 2; 
-        const halfScreenHeight = this.app.screen.height / 2; 
+        const halfScreenWidth = this.app.screen.width / 2;
+        const halfScreenHeight = this.app.screen.height / 2;
 
-        const targetX = halfScreenWidth - playerX* this.gameContainer.scale.x;
+        const targetX = halfScreenWidth - playerX * this.gameContainer.scale.x;
         const targetY = halfScreenHeight - playerY * this.gameContainer.scale.y;
-
 
         // Aplicar el límite de 0,0 y el tamaño del nivel
         const maxOffsetX = -(this.ancho * this.gameContainer.scale.x - this.app.screen.width);
@@ -241,5 +219,4 @@ onResize() {
         });
     }
 }
-
 // fin juego.js

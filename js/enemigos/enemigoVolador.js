@@ -7,7 +7,7 @@ class EnemigoVolador extends Enemigo {
         this.sprite.drawRect(-16, -16, 32, 32);
         this.sprite.endFill();
         // Anular la gravedad del cuerpo fisico
-        Matter.Body.set(this.body, {gravityScale: 0});
+        Matter.Body.set(this.body, { gravityScale: 0 });
         this.amplitud = 60;
         this.velocidadOrbita = 0.001;
         this.tiempoDisparo = 2000;
@@ -27,7 +27,7 @@ class EnemigoVolador extends Enemigo {
         });
     }
 
-    lanzarProyectil(){
+    lanzarProyectil() {
         const jugador = detectarJugador();
         if (Date.now() - this.ultimaVezDisparo > this.tiempoDisparo) {
             const proyectil = new Proyectil(this.app, this.sprite.x, this.sprite.y, jugador.sprite.x, jugador.sprite.y);
@@ -37,10 +37,10 @@ class EnemigoVolador extends Enemigo {
     }
 
     // Sobreescribir update para emular movimiento flotante
-    update(){
-       this.orbitarJugador();
-       this.lanzarProyectil();
-       super.update();
+    update() {
+        this.orbitarJugador();
+        this.lanzarProyectil();
+        super.update();
     }
 }
 

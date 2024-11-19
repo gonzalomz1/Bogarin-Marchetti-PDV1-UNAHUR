@@ -9,7 +9,7 @@ class PantallaInicio {
     }
 
     activar() {
-        const texturaAnimada =  this.cargadorRecursos.obtenerRecurso("JSON_PANTALLA_INICIO");
+        const texturaAnimada = this.cargadorRecursos.obtenerRecurso("JSON_PANTALLA_INICIO");
         this.sprite = new PIXI.AnimatedSprite(
             texturaAnimada.animations["PantallaInicio"]
         );
@@ -41,7 +41,6 @@ class PantallaInicio {
         // Manejo del input del jugador
         if (tecla === "Enter") {
             console.log("Iniciando juego...");
-            // Aquí podrías emitir un evento para cambiar de pantalla o estado del juego
             this.listo = false; // Desactivamos la pantalla de inicio
             this.comenzar(); // Eliminamos esta pantalla del escenario
         }

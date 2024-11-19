@@ -120,8 +120,6 @@ class Nivel {
         this.sistemasXP.forEach(sistema => sistema.update(detectarJugador()));
         this.verificarTeleport();
     }
-
-
 }
 
 // fin nivel.js

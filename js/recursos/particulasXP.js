@@ -1,10 +1,10 @@
 // particulasXP.js
 class ParticulaXP extends Boid {
-    constructor (x, y, app) {
+    constructor(x, y, app) {
         super(x, y); // Reutilizamos la logica del Boid para la particula
         this.app = app;
         this.puedeSerAbsorbida = true;
-        
+
         // Crear el sprite 4x4 con PixiJS
         this.sprite = new PIXI.Graphics();
         this.sprite.beginFill(0xFFFF00); // Color amarillo para XP
@@ -16,7 +16,7 @@ class ParticulaXP extends Boid {
     }
 
     // Actualizamos la posicion del sprite en cada ciclo
-    update(){
+    update() {
         super.update(); // Reutilizamos el movimiento del Boid
         this.sprite.x = this.posicion.x;
         this.sprite.y = this.posicion.y;

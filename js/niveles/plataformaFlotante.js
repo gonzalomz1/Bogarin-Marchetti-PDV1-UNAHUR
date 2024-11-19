@@ -1,5 +1,5 @@
 class PlataformaFlotante {
-    constructor(juego, world, app, nivel, x, y, ancho, alto){
+    constructor(juego, world, app, nivel, x, y, ancho, alto) {
         this.juego = juego;
         this.world = world;
         this.app = app;
@@ -10,7 +10,7 @@ class PlataformaFlotante {
         this.alto = alto;
         this.cargadorRecursos = this.juego.cargadorRecursos;
 
-        
+
 
         this.plataformaMatter = this.crearCuerpoEnMatter();
         this.plataformaPixi = this.cargarTexturaEnPixi();
@@ -67,7 +67,7 @@ class PlataformaFlotante {
         this.plataformaPixi.animationSpeed = 0.07;
         this.plataformaPixi.loop = false;
         this.plataformaPixi.play(); // Inicia la animación
-        
+
         this.plataformaPixi.onComplete = () => {
             this.cambiarEstado("Destruido");
         };
@@ -77,15 +77,12 @@ class PlataformaFlotante {
         // Eliminar el sprite de Pixi
         this.nivel.levelActual.removeChild(this.plataformaPixi);
         this.plataformaPixi.destroy();
-
         // Eliminar el cuerpo de Matter
         Matter.World.remove(this.world, this.plataformaMatter);
-
         // Eliminar la referencia de la lista de plataformas del nivel
         this.nivel.plataformas = this.nivel.plataformas.filter(
             (p) => p.cuerpo !== this.plataformaMatter
         );
-
         this.estadoActual = null; // Limpiar el estado
     }
 
