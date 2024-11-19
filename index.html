@@ -1,33 +1,51 @@
+<!DOCTYPE html>
 <html>
 
 <head>
     <script src="https://pixijs.download/v8.3.4/pixi.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/matter-js/0.18.0/matter.min.js"></script>
-    <script src="js/listaRecursos.js"></script>
-    <script src="js/cargadorRecursos.js"></script>
-    <script src="js/juego.js"></script>
-    <script src="js/objeto.js"></script>
-    <script src="js/inputManager.js"></script>
-    <script src="js/pantallaInicio.js"></script>
-    <script src="js/utils.js"></script>
-    <script src="js/boids.js"></script>
-    <script src="js/sistemaBoids.js"></script>
-    <script src="js/particulasXP.js"></script>
-    <script src="js/sistemaParticulasXP.js"></script>
-    <script src="js/entidad.js"></script>
-    <script src="js/jugador.js"></script>
-    <script src="js/nivel.js"></script>
-    <script src="js/spawn.js"></script>
-    <script src="js/enemigo.js"></script>
-    <script src="js/enemigoMelee.js"></script>
-    <script src="js/enemigoVolador.js"></script>
-    <script src="js/proyectil.js"></script>
+    <script src="js/recursos/listaRecursos.js"></script>
+    <script src="js/recursos/cargadorRecursos.js"></script>
+    <script src="js/principal/juego.js"></script>
+    <script src="js/hud/pantallaLevelUp.js"></script>
+    <script src="js/hud/powerUp.js"></script>
+    <script src="js/niveles/tutorial.js"></script>
+    <script src="js/herramientas/inputManager.js"></script>
+    <script src="js/niveles/pantallaInicio.js"></script>
+    <script src="js/herramientas/utils.js"></script>
+    <script src="js/herramientas/boids.js"></script>
+    <script src="js/herramientas/sistemaBoids.js"></script>
+    <script src="js/recursos/particulasXP.js"></script>
+    <script src="js/recursos/sistemaParticulasXP.js"></script>
+    <script src="js/claseBase/entidad.js"></script>
+    <script src="js/jugador/jugador.js"></script>
+    <script src="js/enemigos/enemigo.js"></script>
+    <script src="js/enemigos/enemigoMelee.js"></script>
+    <script src="js/enemigos/enemigoVolador.js"></script>
+    <script src="js/niveles/nivel.js"></script>
+    <script src="js/niveles/plataformaFlotante.js"></script>
+    <script src="js/enemigos/spawn.js"></script>
+    <script src="js/enemigos/proyectil.js"></script>
+    
     <title>La pesadilla del déficit</title>
+
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            height: 100%;
+            width: 100%;
+        }
+        canvas {
+            display: block;
+        }
+    </style>
 </head>
 
 <body>
     <script>
-    let juego = new Juego();
+        let juego = new Juego();
     </script>
 </body>
 </html>

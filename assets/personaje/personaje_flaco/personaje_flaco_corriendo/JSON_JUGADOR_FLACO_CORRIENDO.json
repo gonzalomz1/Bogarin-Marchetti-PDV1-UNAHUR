@@ -1,0 +1,47 @@
+{"frames": {
+
+"PlayerFlacoWalk_001.png":
+{
+	"frame": {"x":0,"y":0,"w":32,"h":32},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":32,"h":32},
+	"sourceSize": {"w":32,"h":32}
+},
+"PlayerFlacoWalk_002.png":
+{
+	"frame": {"x":32,"y":0,"w":32,"h":32},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":32,"h":32},
+	"sourceSize": {"w":32,"h":32}
+},
+"PlayerFlacoWalk_003.png":
+{
+	"frame": {"x":64,"y":0,"w":32,"h":32},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":32,"h":32},
+	"sourceSize": {"w":32,"h":32}
+},
+"PlayerFlacoWalk_004.png":
+{
+	"frame": {"x":96,"y":0,"w":32,"h":32},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":32,"h":32},
+	"sourceSize": {"w":32,"h":32}
+}},
+"animations": {
+	"JSON_JUGADOR_FLACO_CORRIENDO": ["PlayerFlacoWalk_001.png","PlayerFlacoWalk_002.png","PlayerFlacoWalk_003.png","PlayerFlacoWalk_004.png"]
+},
+"meta": {
+	"app": "https://www.codeandweb.com/texturepacker",
+	"version": "1.1",
+	"image": "JSON_JUGADOR_FLACO_CORRIENDO.png",
+	"format": "RGBA8888",
+	"size": {"w":128,"h":32},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:199273afd40aa7d2a8c1f8cb0957dd61:c34491c4f883df2c5c695f336d764ee4:fe2666b33a61bfa377781154a1cd7c63$"
+}
+}
