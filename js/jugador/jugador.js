@@ -159,7 +159,8 @@ class Jugador extends Entidad {
         this.juego.eventosMatterJugador();
         Matter.Body.set(this.body, {
             label: 'jugador',
-            entidad: this
+            entidad: this,
+
         });
     }
 
@@ -172,8 +173,18 @@ class Jugador extends Entidad {
         sprite.loop = false;
         sprite.anchor.set(0.5);
 
-        this.juego.gameContainer.addChild(sprite);
-        return sprite;
+        const areaColision = new PIXI.Graphics();
+        areaColision.beginFill(0x0000ff, 0); // Color invisible
+        areaColision.drawRect(-sprite.width / 2, -sprite.height / 2, sprite.width, sprite.height);
+        areaColision.endFill();
+
+        // Asociar el area de colision al sprite
+        const container = new PIXI.Container();
+        container.addChild(areaColision);
+        container.addChild(sprite);
+
+        this.juego.gameContainer.addChild(container);
+        return {sprite, areaColision, container};
     }
 
 
@@ -297,26 +308,26 @@ class Jugador extends Entidad {
     actualizarAreaAtaque() {
         if (this.areaAtaque) {
             // Actualizar la posición del área de ataque a la posición del jugador
-            this.areaAtaque.x = this.container.x;
-            this.areaAtaque.y = this.container.y;
+            this.areaAtaque.container.x = this.container.x;
+            this.areaAtaque.container.y = this.container.y;
     
             // Ajustar la rotación según el ángulo apuntado
-            this.areaAtaque.rotation = this.anguloApuntado;
+            this.areaAtaque.sprite.rotation = this.anguloApuntado;
     
             // Ajustar la escala basada en la dirección del ángulo de apuntado
             const angulo = this.anguloApuntado;
             if (angulo > Math.PI / 4 && angulo < 3 * Math.PI / 4) {
                 // Apuntando hacia abajo, no invertir verticalmente
-                this.areaAtaque.scale.y = 1;
+                this.areaAtaque.sprite.scale.y = 1;
             } else if (angulo < -Math.PI / 4 && angulo > -3 * Math.PI / 4) {
                 // Apuntando hacia arriba, no invertir verticalmente
-                this.areaAtaque.scale.y = 1;
+                this.areaAtaque.sprite.scale.y = 1;
             } else {
                 // Apuntando a los lados, invertir según la dirección
                 if (angulo > Math.PI / 2 || angulo < -Math.PI / 2) {
-                    this.areaAtaque.scale.y = -1; // Reflejar verticalmente
+                    this.areaAtaque.sprite.scale.y = -1; // Reflejar verticalmente
                 } else {
-                    this.areaAtaque.scale.y = 1;  // Mantener sin reflejar
+                    this.areaAtaque.sprite.scale.y = 1;  // Mantener sin reflejar
                 }
             }
         }
@@ -330,20 +341,20 @@ class Jugador extends Entidad {
         const nuevaY = this.container.y + Math.sin(this.anguloApuntado) * distancia;
     
         // Determinar la escala del sprite del area de ataque para mantener las proporciones
-        this.areaAtaque.scale.set(1, 1); // Mantener las proporciones originales
+        this.areaAtaque.sprite.scale.set(1, 1); // Mantener las proporciones originales
     
         // Actualizar la posición del área de ataque
-        this.areaAtaque.x = nuevaX;
-        this.areaAtaque.y = nuevaY;
+        this.areaAtaque.container.x = nuevaX;
+        this.areaAtaque.container.y = nuevaY;
     }
 
     attack() {
         this.cambiarEstado('Attack');
-        this.areaAtaque.visible = true;
-        this.areaAtaque.gotoAndPlay(0);
+        this.areaAtaque.container.visible = true;
+        this.areaAtaque.sprite.gotoAndPlay(0);
         console.log('Ataque activado');
         setTimeout(() => {
-            this.areaAtaque.visible = false;
+            this.areaAtaque.container.visible = false;
             this.cambiarEstado("Idle");
         }, this.velocidadAtaque);
     }
@@ -412,13 +423,16 @@ class Jugador extends Entidad {
         if (!this.puedeVerificarColision) return; // Salir si el flag esta false
         this.puedeVerificarColision = false; // Desactivar temporalmente
 
-        const rectAtaque = this.areaAtaque.getBounds();
         const nivelActual = detectarNivelActual();
+
+        const rectAtaque = this.areaAtaque.areaColision.getBounds();
+        
         nivelActual.enemigos.forEach((enemigo) => {
+            console.log(enemigo);
             const rectEnemigo = enemigo.rectBounds;
             if (intersectarRectangulo(rectAtaque, rectEnemigo)) {
-                //console.log('Enemigo golpeado');
-                if (this.spriteActual !== null) {
+                console.log('Enemigo golpeado');
+                if (this.areaAtaque.sprite !== null) {
                     const direccionImpacto = {
                         x: enemigo.sprite.x - this.spriteActual.x,
                         y: enemigo.sprite.y - this.spriteActual.y
@@ -476,7 +490,7 @@ class Jugador extends Entidad {
                 this.cambiarEstado('Idle');
             }
             this.actualizarEstado();
-            if (this.areaAtaque.visible) this.detectarColisionAtaque();
+            if (this.areaAtaque.container.visible) this.detectarColisionAtaque();
             if (!this.mouseMoviendose) this.apuntarConUltimaPosicion();
             this.sincronizarAreaAtaque();
             // Sincronizamos el sprite con el cuerpo de matter.js
@@ -491,7 +505,7 @@ class Jugador extends Entidad {
     }
 
     puedeEstarIdle() {
-        return (this.velocidadHorizontal === 0 && this.jugadorEnElSuelo && !this.areaAtaque.visible);
+        return (this.velocidadHorizontal === 0 && this.jugadorEnElSuelo && !this.areaAtaque.container.visible);
     }
 }
 

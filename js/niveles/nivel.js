@@ -11,8 +11,8 @@ class Nivel {
         this.enemigos = [];
         this.sistemasXP = [];
 
-        this.limiteIzquierdo = 0;
-        this.limiteDerecho = 2700 ;
+        this.limiteIzquierdo = 10;
+        this.limiteDerecho = 2000 ;
         
         this.levelActual = new PIXI.Container();
         this.indicarNivelActual(this);
@@ -69,7 +69,7 @@ class Nivel {
     }
 
     crearPlataformaFlotante() {
-        let plataforma = new PlataformaFlotante(this.juego, this.world, this.app, this, this.ancho / 2, this.alto - 200, 1280, 100);
+        let plataforma = new PlataformaFlotante(this.juego, this.world, this.app, this, this.ancho / 2, this.alto - 150, 1280, 100);
         plataforma.agregarANivelActual()
     }
 

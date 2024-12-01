@@ -2,13 +2,14 @@
 class Juego {
     constructor() {
         this.contadorDeFrame = 0;
-        this.ancho = window.innerWidth;
-        this.alto = window.innerHeight;
+        this.ancho = 640;
+        this.alto = 360;
 
-        this.canvasWidth = window.innerWidth * 2;
-        this.canvasHeight = window.innerHeight * 2;
+        this.canvasAncho = ancho * 4;
+        this.canvasAlto = alto * 4;
 
         this.cargadorRecursos = new CargadorRecursos;
+
         this.app = new PIXI.Application();
         let promesa = this.app.init({
             width: this.ancho,
@@ -34,13 +35,13 @@ class Juego {
         promesa.then((e) => {
             document.body.appendChild(this.app.view);
             window.addEventListener('resize', this.onResize.bind(this));
-            this.onResize(); // Llamar al resize al inicio
+            //this.onResize(); // Llamar al resize al inicio
             this.app.stage.sortableChildren = true;
             this.engine = Matter.Engine.create();
             asignarEngineActual(this.engine);
             this.world = this.engine.world;
             asignarWorldActual(this.world);
-            this.inicializarRenderDeMatter();
+            //this.inicializarRenderDeMatter();
             this.iniciarJuego();
         });
     }
@@ -103,7 +104,6 @@ class Juego {
                 });
             }
         }
-
         // Actualizar las dimensiones internas
         this.ancho = nuevoAncho;
         this.alto = nuevoAlto;
@@ -132,23 +132,29 @@ class Juego {
 
     // En cada etapa del juego, se le hace reSize()
     iniciarPantallaInicio() {
+        PIXI.sound.add('musicaFondo', './assets/sonidos/musicaFondo/test01.wav');
+        PIXI.sound.play('musicaFondo', {
+            loop: true,
+            volume: 0.05 // Volumen debe usar punto decimal
+        });
+
         this.pantallaInicio = new PantallaInicio(this, this.inputManager)
         this.pantallaInicio.activar();
-        this.onResize();
+        //this.onResize();
     }
 
     iniciarTutorial() {
         this.tutorial = new Tutorial(this);
         this.tutorial.activar();
-        this.onResize();
+        //this.onResize();
     }
 
     comenzarJuego() {
         console.log('comenzando el juego ....');
-        this.zoomLevel = 1.4;
+        //this.zoomLevel = 1.4;
         this.nivel = new Nivel(this, this.world, this.app, this.alto, this.ancho);
         this.jugador = new Jugador(this, this.world, this.app, this.alto / 2, this.ancho / 2, this.inputManager);
-        this.onResize();
+        //this.onResize();
         modificarNivelActual(this.nivel);
         this.app.ticker.add(() => {
             this.gameLoop();
@@ -166,7 +172,7 @@ class Juego {
     };
 
     moverCamara() {
-        let lerpFactor = 0.1;
+        let lerpFactor = 0.05;
         // Obtener la posición del protagonista
         const playerX = this.jugador.container.x;
         const playerY = this.jugador.container.y;

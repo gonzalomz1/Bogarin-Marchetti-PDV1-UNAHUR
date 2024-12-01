@@ -85,5 +85,4 @@ class PlataformaFlotante {
         );
         this.estadoActual = null; // Limpiar el estado
     }
-
 }

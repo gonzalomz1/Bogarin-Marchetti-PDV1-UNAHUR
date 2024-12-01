@@ -2,11 +2,11 @@
 
 /*
     IMPORTANTE:
-        el nombre del recurso DEBE SER IDENTICO a "animations" en el archivo JSON.
+        En el caso de JSON, el nombre del recurso DEBE SER IDENTICO a "animations" en el archivo.
 */
 
 const LISTA_RECURSOS = [
-    { nombre: "JSON_PANTALLA_INICIO", url: "./assets/PantallaInicio/PantallaInicio.json" },
+    { nombre: "JSON_PANTALLA_INICIO", url: "./assets/PantallaInicio/640/PantallaInicio.json" },
     { nombre: "JSON_JUGADOR_FLACO_IDLE", url: "./assets/personaje/personaje_flaco/personaje_flaco_reposo/JSON_JUGADOR_FLACO_IDLE.json" },
     { nombre: "JSON_JUGADOR_FLACO_CORRIENDO", url: "./assets/personaje/personaje_flaco/personaje_flaco_corriendo/JSON_JUGADOR_FLACO_CORRIENDO.json" },
     { nombre: "JSON_JUGADOR_FLACO_ATACANDO", url: "./assets/personaje/personaje_flaco/personaje_flaco_atacando/JSON_JUGADOR_FLACO_ATACANDO.json" },
@@ -18,5 +18,4 @@ const LISTA_RECURSOS = [
     { nombre: "PNG_TUTORIAL", url: "./assets/imagenTutorial/imagenTutorial.png" },
     { nombre: "PNG_NIVEL_UNO_FONDO", url: "./assets/nivelUno/imagenFondo.png" },
     { nombre: "PNG_NIVEL_UNO_PLATAFORMA_BASE", url: "./assets/nivelUno/plataformaBase.png" },
-
 ]
